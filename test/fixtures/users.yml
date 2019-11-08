@@ -10,10 +10,10 @@
 # two: {}
 # column: value
 
-# michael:
-#   name: Michael Example
-#   email: michael@example.com
-#   password_digest: <%= User.digest('password') %>
+ivan:
+  name: Ivan
+  email: ivan@example.com
+  password_digest: <%= User.digest('password') %>
   
 
 

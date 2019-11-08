@@ -14,19 +14,22 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }
 
   def remember
-    # actualiza atributo en base de datos y genera un nuevo token
-    update_attribute(:remember_digest, create_remember_token)
+    # actualiza atributo en base de datos generando un nuevo token
+    update_attribute(:remember_digest, create_remember_token)    
   end
   
   def forget
     # actualiza atributo en base de datos a nulo 
+    update_attribute(:remember_digest, nil)
   end
+
   # Returns true if the given token matches the digest.
-  # def authenticated?(attribute, token)
-  #   digest = send("#{attribute}_digest")
-  #   return false if digest.nil?
-  #   BCrypt::Password.new(digest).is_password?(token)
-  # end
+  def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
+  end
+
   private
     # Converts email to all lower-case.
     def downcase_email
