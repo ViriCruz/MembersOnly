@@ -2,7 +2,8 @@
 
 class ApplicationController < ActionController::Base   
 
-  def sign_in 
+  def sign_in
+
     @user = User.find_by(email: params[:session][:email].downcase)
     # create new remember token here and save it in cookie permanent    
     # puts @user.remember_token contiene el token para guardar en la cookie
@@ -21,19 +22,9 @@ class ApplicationController < ActionController::Base
   # Returns the user corresponding to the remember token cookie.
   def current_user
     if (user_id = cookies.signed[:user_id])
-      @current_user ||= User.find_by(id: user_id)      
-    else
-      set_user
+      @current_user ||= User.find_by(id: user_id) 
     end
   end
 
-  private  
-  def set_user
-    user = User.find_by(id: user_id)
-    if user && user.authenticated?(:remember, cookies[:remember_token])
-      log_in user
-      @current_user = user
-    end
-  end
 
 end
