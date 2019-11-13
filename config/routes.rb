@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   root 'static_pages#home'
 
+  get '/cookie_create', to: 'application#cookie_creation'
+  delete '/cookie_delete', to: 'application#cookie_deletion'
+
   
 end
