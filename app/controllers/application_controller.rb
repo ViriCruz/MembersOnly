@@ -28,8 +28,8 @@ class ApplicationController < ActionController::Base
   #ag
   # Logs out the current user.
   def sign_out
-    cookies.delete :test
-    user.forget
+    #cookies.delete :test
+    @current_user.forget
     cookies.delete :user_id
     cookies.delete :remember_token
   end  
