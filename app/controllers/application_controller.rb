@@ -7,9 +7,8 @@ class ApplicationController < ActionController::Base
     if @user && @user.authenticate(params[:session][:password])
       @user.remember
       cookies.permanent.signed[:user_id] = @user.id
-      cookies.permanent[:remember_token] = @user.remember_token     
-      # create new remember token here and save it in cookie permanent    
-      # puts @user.remember_token contiene el token para guardar en la cookie
+      cookies.permanent[:remember_token] = @user.remember_token
+
       flash.now[:success] = "Logged in"
       render "users/show"
     else
@@ -37,7 +36,7 @@ class ApplicationController < ActionController::Base
   #ag
   # Returns true if the user is logged in, false otherwise.
   def sign_in?
-    !@current_user.nil?
+    !current_user.nil?
   end
 
   #ag
