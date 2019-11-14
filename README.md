@@ -24,13 +24,7 @@ Also it was built using [Oding project guide](https://www.theodinproject.com/cou
 After install the requirements run the following command:
 <code> bundle exec rails webpacker:install </code>
 
-
-  
 ## Collaborators
 
 [Ivan Derlich](https://github.com/IvanDerlich/)
 [Gabriela Cruz](https://github.com/ViriCruz/)
-
-
-
-

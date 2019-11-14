@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
 
   #ag
   # Returns true if the user is logged in, false otherwise.
-  def sign_in?
+  def signed_in?
     !current_user.nil?
   end
 

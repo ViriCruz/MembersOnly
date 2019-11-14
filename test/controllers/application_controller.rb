@@ -13,6 +13,7 @@ class ApplicatioControllerTest < ActionDispatch::IntegrationTest
         assert is_cookie_created?
         #assert template
         delete cookie_deleted_path
+        #assert :success
         assert_not is_cookie_created?
         #assert template
     end
