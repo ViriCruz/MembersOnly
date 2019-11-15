@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action:  :nombredelmetodo, only[:new, :create]
+  before_action :authorize_user, only: [:new, :create]
 
   def new
   end
@@ -12,8 +12,11 @@ class PostsController < ApplicationController
 
   private
 
-  def metodo
-    redirect to root url unless signed_in?
+  def authorize_user
+    unless signed_in?
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end   
   end
 
 end
