@@ -1,2 +1,22 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<% #provide(:title, "Create Post") %>
+<h1>New Post</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:post, url: posts_url) do |f| %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %> 
+
+      <br><br>
+
+      <%= f.label :body %>
+      <%= f.text_field :body, class: 'form-control' %>
+
+      <br><br>
+
+      <%= f.submit "Create Post", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>
