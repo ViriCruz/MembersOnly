@@ -5,13 +5,20 @@ class PostsController < ApplicationController
   end
 
   def create
-    
+    @post = current_user.posts.build(post_params)
   end
 
   def index
+    @posts = Post.all
   end
 
+  
+
   private
+
+  def post_params
+    # params.require(:post).permit
+  end
 
   def authorize_user
     unless signed_in?
