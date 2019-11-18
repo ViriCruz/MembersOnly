@@ -6,18 +6,23 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    if @post.save #sucess      
+      redirect_to posts_url
+    else #failure
+      #flash message danger or error
+      redirect_to post_create
+    end
   end
 
   def index
     @posts = Post.all
-  end
-
-  
+    current_user
+  end  
 
   private
 
   def post_params
-    # params.require(:post).permit
+    params.require(:post).permit(:body, :title)
   end
 
   def authorize_user

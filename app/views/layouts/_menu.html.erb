@@ -1,0 +1,10 @@
+<br><br><br>
+<p><%= link_to "View Posts", posts_url %></p>
+
+<% if signed_in? %>
+    <p><%= link_to "Log out", logout_path, method: :delete %></p>
+    <p><%= link_to "Create Post", new_post_url %></p>
+    <p><%= link_to "Back to user", @current_user %></p>
+<% else %>
+    <p><%= link_to "Log In", login_path %></p>
+<% end %>
