@@ -1,6 +1,10 @@
 class UsersController < ApplicationController 
-
+  
   def show
+    @current_user = current_user
+
+    # validar que el current user sea igual al que hace las peticiones
+    # denegar acceso a la vista de otros usuarios y solo autorizar acceso a la vista del usuario logueado
   end
 
   def new

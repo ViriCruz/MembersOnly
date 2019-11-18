@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base   
-
+ 
   def cookie_creation
     cookies.permanent[:test] = "foobar"
   end
@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   def cookie_deletion
     cookies.delete :test   
   end
+
+ 
 
   def sign_in
     @user = User.find_by(email: params[:session][:email].downcase)
@@ -18,7 +20,8 @@ class ApplicationController < ActionController::Base
       cookies.permanent[:remember_token] = @user.remember_token
 
       flash.now[:success] = "Logged in"
-      render "users/show"
+      
+      redirect_to user_url(current_user)
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render "sessions/new"
