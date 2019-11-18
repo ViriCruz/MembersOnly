@@ -6,10 +6,11 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    if @post.save #sucess      
+    if @post.save # success
+      flash.now[:success] = "Post created succesfully"      
       redirect_to posts_url
-    else #failure
-      #flash message danger or error
+    else # failure
+      # flash message danger or error
       redirect_to post_create
     end
   end
