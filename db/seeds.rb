@@ -18,6 +18,12 @@ User.create(name:  "Ivan",
     password_confirmation: "foobar",
    )
 
+Post.create(
+    title: "este es un titulo",
+    body: "este es el contenido del post",
+    user_id: 1
+)   
+
 # 99.times do |n|
 # name  = Faker::Name.name
 # email = "example-#{n+1}@railstutorial.org"
