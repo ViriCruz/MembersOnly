@@ -1,0 +1,38 @@
+<header class="navbar fixed-top navbar-dark bg-dark">
+  <div class="container">
+    <%= link_to "members only", "#", id: "logo" %>
+    <nav>
+      <ul class="nav d-flex justify-content-end">
+        <li class="nav-item"><%= link_to "View Posts", posts_url, class: "nav-link" %></li>
+        <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  </li>
+        <%if @current_user %>
+          
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Create post", "#", class: "dropdown-item" %></li>
+              <li><%= link_to "Settings", "#", class: "dropdown-item" %></li>
+              <li class="dropdown-divider"></li>
+              <li>
+                <%= link_to "Log out", logout_path, class: "dropdown-item", method: :delete %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="nav-item"><%= link_to "Log in", login_path, class: "nav-link" %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
