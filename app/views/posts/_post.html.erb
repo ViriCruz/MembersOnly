@@ -1,5 +1,13 @@
 <li class="post-item">
-  <p>Creator: <%= post.user.name %></p>
-  <p>Title: <%= post.title %> </p>
-  <p>Body: <%= post.body %> </p>
+  <article>
+    <div class="post-title">
+      <h2><%= post.title %></h2>
+    </div>
+    <div class="post-body">
+      <%= post.body %>
+    </div> 
+    <div class="post-author">
+      <%= post.user.name %>
+    </div>
+  </article>
 </li>
