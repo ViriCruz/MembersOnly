@@ -1,6 +1,10 @@
-@import "bootstrap";
+$dark-bg: #181a1b;
+$text-color: rgb(223, 221, 216);
+
 body {
   padding-top: 60px;
+  background-color: $dark-bg;
+  color: $text-color;
 }
 
 // header
@@ -18,4 +22,20 @@ body {
     color: $white;
     text-decoration: none;
   }
+}
+
+a {
+  color: $white;
+  &:hover {
+    color: #c5c9ce
+  }
+}
+
+// post item
+.post-item {
+  border: 1px solid #373a40;
+  padding: 10px 30px;
+  transition: all .2s ease;
+  margin-top: 10px;
+  background-color: #232627;
 }
