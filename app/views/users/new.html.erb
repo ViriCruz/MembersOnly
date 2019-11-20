@@ -1,10 +1,11 @@
 <% #provide(:title, "Create Post") %>
 <div class="row pt-4">
   <div class="col-md-4 col-md-offset-3 mx-auto">
+    
     <section class="register-form"> 
       <h1>New Member</h1>  
       <%= form_for(:user, url: users_url) do |f| %>
-
+        <%= render 'shared/error_messages', object: :user %>
         <%= f.label :name %>
         <%= f.text_field :name, class: 'form-control mb-3' %> 
 
