@@ -1,5 +1,4 @@
 class UsersController < ApplicationController 
-  
   def show
     @current_user = current_user
 
@@ -13,9 +12,13 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      #flash: user created successfull
-      redirect_to users_url(user.id)
+      remember_user(@user)
+      flash.now[:success] = "User created successfully"
+      flash.now[:success] = "Login successfully"
+      @current_user = @user
+      redirect_to @user
     else
+      flash.now[:danger] = "Check data input"
       render 'new'
     end
   end

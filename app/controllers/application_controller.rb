@@ -2,25 +2,11 @@
 
 class ApplicationController < ActionController::Base   
  
-  def cookie_creation
-    cookies.permanent[:test] = "foobar"
-  end
-
-  def cookie_deletion
-    cookies.delete :test   
-  end
-
- 
-
-  def sign_in
+  def sign_in 
     @user = User.find_by(email: params[:session][:email].downcase)
     if @user && @user.authenticate(params[:session][:password])
-      @user.remember
-      cookies.permanent.signed[:user_id] = @user.id
-      cookies.permanent[:remember_token] = @user.remember_token
-
-      flash.now[:success] = "Logged in"
-      
+      remember_user(@user)
+      flash.now[:success] = "Logged in"      
       redirect_to user_url(current_user)
     else
       flash.now[:danger] = 'Invalid email/password combination'
@@ -51,6 +37,13 @@ class ApplicationController < ActionController::Base
     !current_user.nil?
   end
 
+  private
+
+  def remember_user(user)
+    user.remember
+    cookies.permanent.signed[:user_id] = user.id
+    cookies.permanent[:remember_token] = user.remember_token
+  end
   
 
 end
