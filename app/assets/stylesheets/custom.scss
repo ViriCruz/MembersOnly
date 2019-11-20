@@ -1,10 +1,16 @@
 $dark-bg: #181a1b;
 $text-color: rgb(223, 221, 216);
 
+html, body{
+  height: 100%;
+  width: 100%;
+}
+
 body {
   padding-top: 60px;
   background-color: $dark-bg;
   color: $text-color;
+  font-family: 'Open Sans', sans-serif;
 }
 
 // header
@@ -38,4 +44,10 @@ a {
   transition: all .2s ease;
   margin-top: 10px;
   background-color: #232627;
+}
+
+// login
+.login h1{
+  font-size: 2em;
+  margin: .67em 0;
 }
