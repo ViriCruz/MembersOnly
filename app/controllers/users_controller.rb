@@ -1,4 +1,6 @@
 class UsersController < ApplicationController 
+  before_action :correct_user,   only: [:show]
+
   def show
     #@current_user = current_user
     @current_user = User.find(params[:id])
@@ -27,5 +29,10 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(posts_url) unless current_user?(@user)
   end
 end

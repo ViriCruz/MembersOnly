@@ -37,6 +37,10 @@ class ApplicationController < ActionController::Base
     !current_user.nil?
   end
 
+  def current_user?(user)
+    user == current_user
+  end
+
   private
 
   def remember_user(user)
