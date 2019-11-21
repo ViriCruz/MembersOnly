@@ -13,16 +13,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def sign_out # Logs out the current user.
+  # Logs out the current user.
+  def sign_out
     @current_user.forget
     cookies.delete :user_id
     cookies.delete :remember_token
   end
 
-  def current_user # Returns the user corresponding to the remember token cookie.
-    if (user_id = cookies.signed[:user_id])
-      @current_user ||= User.find_by(id: user_id)
-    end
+  # Returns the user corresponding to the remember token cookie.
+  def current_user
+    return unless (user_id = cookies.signed[:user_id])
+
+    @current_user ||= User.find_by(id: user_id)
   end
 
   # Returns true if the user is logged in, false otherwise.
