@@ -1,16 +1,17 @@
-class PostsController < ApplicationController
-  before_action :authorize_user, only: [:new, :create]
+# frozen_string_literal: true
 
-  def new
-  end
+class PostsController < ApplicationController
+  before_action :authorize_user, only: %i[new create]
+
+  def new; end
 
   def create
     @post = current_user.posts.build(post_params)
     if @post.save # success
-      flash.now[:success] = "Post created succesfully"      
+      flash.now[:success] = 'Post created succesfully'
       redirect_to posts_url
     else # failure
-      # flash message danger or error
+      flash.now[:danger] = "Can't create post. Check input."
       redirect_to post_create
     end
   end
@@ -18,7 +19,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     current_user
-  end  
+  end
 
   private
 
@@ -28,9 +29,8 @@ class PostsController < ApplicationController
 
   def authorize_user
     unless signed_in?
-      flash[:danger] = "Please log in."
+      flash[:danger] = 'Please log in.'
       redirect_to login_url
-    end   
+    end
   end
-
 end

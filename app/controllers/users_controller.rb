@@ -1,13 +1,7 @@
-class UsersController < ApplicationController 
-  before_action :correct_user,   only: [:show]
+# frozen_string_literal: true
 
-  def show
-    #@current_user = current_user
-    @current_user = User.find(params[:id])
-
-    # validar que el current user sea igual al que hace las peticiones
-    # denegar acceso a la vista de otros usuarios y solo autorizar acceso a la vista del usuario logueado
-  end
+class UsersController < ApplicationController
+  before_action :correct_user, only: [:show]
 
   def new
     @user = User.new
@@ -17,16 +11,17 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       remember_user(@user)
-      flash[:success] = "Account created successfully"
-      flash[:info] = "Login successfully"
+      flash[:success] = 'Account created successfully'
+      flash[:info] = 'Login successfully'
       @current_user = @user
-      redirect_to @user
+      redirect_to root_url
     else
       render 'new'
     end
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
