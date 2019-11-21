@@ -10,3 +10,4 @@ files:
     - "Guardfile"
     - "Rakefile"
     - "test/**/*"
+    - "test/*"
