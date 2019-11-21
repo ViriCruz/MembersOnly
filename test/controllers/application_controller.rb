@@ -1,7 +1,7 @@
+# frozen_string_literal: true
 require 'test_helper'
 
 class ApplicatioControllerTest < ActionDispatch::IntegrationTest
-
     test "test creation" do
         get cookie_created_path
         assert is_cookie_created?
