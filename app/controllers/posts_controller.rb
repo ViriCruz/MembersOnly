@@ -28,9 +28,9 @@ class PostsController < ApplicationController
   end
 
   def authorize_user
-    unless signed_in?
-      flash[:danger] = 'Please log in.'
-      redirect_to login_url
-    end
+    return if signed_in?
+
+    flash[:danger] = 'Please log in.'
+    redirect_to login_url
   end
 end
