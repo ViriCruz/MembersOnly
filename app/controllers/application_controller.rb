@@ -27,6 +27,10 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: user_id)
   end
 
+  def current_user=(user)
+    @current_user = user
+  end
+
   # Returns true if the user is logged in, false otherwise.
   def signed_in?
     !current_user.nil?
@@ -42,5 +46,6 @@ class ApplicationController < ActionController::Base
     user.remember
     cookies.permanent.signed[:user_id] = user.id
     cookies.permanent[:remember_token] = user.remember_token
+    current_user = user
   end
 end
