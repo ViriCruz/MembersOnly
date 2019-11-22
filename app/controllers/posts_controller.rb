@@ -3,7 +3,9 @@
 class PostsController < ApplicationController
   before_action :authorize_user, only: %i[new create]
 
-  def new; end
+  def new
+    @post = Post.new
+  end
 
   def create
     @post = current_user.posts.build(post_params)

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:new ,:create, :index]  
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
-  delete '/logout',  to: 'sessions#destroy'
+  delete '/logout',  to: 'sessions#delete'
   
   root 'posts#index'
 end

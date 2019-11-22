@@ -1,16 +1,21 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  def sign_in
-    @user = User.find_by(email: params[:session][:email].downcase)
-    if @user&.authenticate(params[:session][:password])
-      remember_user(@user)
-      flash.now[:success] = 'Logged in'
-      redirect_to root_url
-    else
+
+  def sign_in    
+    unless @user = User.find_by(email: params[:session][:email].downcase)
+      flash.now[:danger] = "This email doesn't exist"
+      render 'sessions/new'
+    end   
+
+    unless @user.authenticate(params[:session][:password])
       flash.now[:danger] = 'Invalid email/password combination'
       render 'sessions/new'
     end
+
+    remember_user(@user)
+    flash.now[:success] = 'Logged in'
+    redirect_to root_url  
   end
 
   # Logs out the current user.
@@ -48,4 +53,4 @@ class ApplicationController < ActionController::Base
     cookies.permanent[:remember_token] = user.remember_token
     current_user = user
   end
-end
+en

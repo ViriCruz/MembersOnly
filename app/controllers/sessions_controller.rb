@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     sign_in
   end
 
-  def destroy
+  def delete
     sign_out if signed_in?
     redirect_to root_url
   end
