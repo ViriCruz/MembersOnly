@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-
   # Logs out the current user.
   def sign_out
     @current_user.forget
@@ -16,9 +15,7 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: user_id)
   end
 
-  def current_user=(user)
-    @current_user = user
-  end
+  attr_writer :current_user
 
   # Returns true if the user is logged in, false otherwise.
   def signed_in?

@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     unless @user = User.find_by(email: params[:session][:email].downcase)
       flash.now[:danger] = "This email doesn't exist"
       render 'sessions/new'
-    end   
+    end
 
     unless @user.authenticate(params[:session][:password])
       flash.now[:danger] = 'Invalid email/password combination'
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
     remember_user(@user)
     flash.now[:success] = 'Logged in'
-    redirect_to root_url 
+    redirect_to root_url
   end
 
   def delete
