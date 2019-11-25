@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    unless @user = User.find_by(email: params[:session][:email].downcase)
+    @user = User.find_by(email: params[:session][:email].downcase)
+    unless @user
       flash.now[:danger] = "This email doesn't exist"
       render 'sessions/new'
     end
