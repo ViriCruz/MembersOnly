@@ -15,7 +15,9 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: user_id)
   end
 
-  attr_writer :current_user
+  def current_user=(user)
+    @current_user = user
+  end
 
   # Returns true if the user is logged in, false otherwise.
   def signed_in?
