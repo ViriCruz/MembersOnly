@@ -1,0 +1,14 @@
+<div class="row d-flex h-100 justify-content-center align-items-center">
+  <div class="col-md-3 col-md-offset-3 h-50">
+    <section class="login">
+      <h1 class="text-center">Login</h1>
+      <div class="">
+        <%= form_for(:session, url: login_path) do |f| %>
+          <%= f.email_field :email, class: 'form-control mb-3', placeholder: "email@example.com" %> 
+          <%= f.password_field :password, class: 'form-control mb-3', placeholder: "password" %>
+          <%= f.submit "Log in", class: "btn btn-primary w-100" %>
+        <% end %>
+      </div>
+    </section>
+  </div>
+</div>

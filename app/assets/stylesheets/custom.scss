@@ -1,0 +1,53 @@
+$dark-bg: #181a1b;
+$text-color: rgb(223, 221, 216);
+
+html, body{
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  padding-top: 60px;
+  background-color: $dark-bg;
+  color: $text-color;
+  font-family: 'Open Sans', sans-serif;
+}
+
+// header
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: $white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+a {
+  color: $white;
+  &:hover {
+    color: #c5c9ce
+  }
+}
+
+// post item
+.post-item {
+  border: 1px solid #373a40;
+  padding: 10px 30px;
+  transition: all .2s ease;
+  margin-top: 10px;
+  background-color: #232627;
+}
+
+// login
+.login h1{
+  font-size: 2em;
+  margin: .67em 0;
+}
