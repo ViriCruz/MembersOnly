@@ -10,4 +10,14 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  # Returns true if a test user is logged in.
+  def is_logged_in?    
+    !cookies[:remember_token].nil? && !cookies[:user_id].nil?
+  end
+
+  def is_cookie_created?
+    !cookies[:test].nil?
+  end
+
 end

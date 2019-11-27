@@ -1,0 +1,17 @@
+<li class="post-item">
+  <article>
+    <div class="post-title">
+      <h2><%= post.title %></h2>
+    </div>
+    <div class="post-body">
+      <p> <%= post.body %> </p>
+    </div> 
+    <div class="post-author">
+      <% if @current_user %>
+        <span>written by:</span> <%= post.user.name %>
+      <% else %>
+        <p> written by: <%= link_to "hidden", login_path %> </p>
+      <% end %>
+    </div>
+  </article>
+</li>
