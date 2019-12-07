@@ -22,28 +22,25 @@ Also it was built using [Oding project guide](https://www.theodinproject.com/cou
 
 # After install the requirements run the following commands:
 <p>
- 1 - <code> git checkout users-posts-and-sessions </code>
+ 1 - <code> Bundle update </code>
 </p>
 <p>
- 2 - <code> Bundle update </code>
+ 2 - <code> Bundle install </code>
 </p>
 <p>
- 3 - <code> Bundle install </code>
+ 3 - <code> yarn install --check-files </code>
 </p>
 <p>
- 4 - <code> yarn install --check-files </code>
+ 4 - <code> bundle exec rails webpacker:install </code> note: overwrite all
 </p>
 <p>
- 5 - <code> bundle exec rails webpacker:install </code> note: overwrite all
+ 5 - <code> rails db:migrate </code>
 </p>
 <p>
- 6 - <code> rails db:migrate </code>
+ 6 - <code> rails db:seed </code>
 </p>
 <p>
- 7 - <code> rails db:seed </code>
-</p>
-<p>
- 8 - <code> rails server </code>
+ 7 - <code> rails server </code>
 </p>
 
 ## login if database seeded
