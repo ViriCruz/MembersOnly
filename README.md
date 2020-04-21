@@ -14,13 +14,13 @@ Also it was built using [Oding project guide](https://www.theodinproject.com/cou
   * CRUD operations
   * Forms
   
-# What do we need to run the project
+# Prerequisites
 * Ruby 2.2+
 * Rails 6
 * Node.js 8.16.0+
 * Yarn 1.x+
 
-# After install the requirements run the following commands:
+# Installing:
 <p>
  1 - <code> Bundle update </code>
 </p>
@@ -47,8 +47,16 @@ Also it was built using [Oding project guide](https://www.theodinproject.com/cou
 <p> <strong> email: </strong> gabriela@example.com </p>
 <p> <strong> password: </strong> foobar </p>
 
+## Running the tests
+`rspec spec --format nested`
 
-## Collaborators
+## Collaborators 👨‍💻
 
-[Ivan Derlich](https://github.com/IvanDerlich/) <br>
-[Gabriela Cruz](https://github.com/ViriCruz/)
+- Github [@Ivan Derlich](https://github.com/IvanDerlich/) <br>
+
+
+- Github [@viricruz](https://github.com/ViriCruz/)
+
+- email me at viridiana.cruz.olivera@gmail.com
+
+- Linkedin [@viricruz](https://www.linkedin.com/in/viricruz/)
