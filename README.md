@@ -1,7 +1,7 @@
 
 # Members Only project
-This project consists of using the bcrypt gem to have a first approach at authentication in rails. We built an application that allows users to create posts and the authors of the posts are displayed only if the user is logged in.
-Also it was built using [Oding project guide](https://www.theodinproject.com/courses/ruby-on-rails/lessons/authentication) that is about authentication as part of forms and authentication section in ruby on rails technical curriculum of [Microverse](microverse.org)
+This project consists of using the Bcrypt gem to have a first approach at authentication in rails. We built an application that allows users to create posts and the authors of the posts are displayed only if the user is logged in.
+Also, it was built using [Oding project guide](https://www.theodinproject.com/courses/ruby-on-rails/lessons/authentication).
 
 
 # Concepts used here
@@ -59,4 +59,4 @@ Also it was built using [Oding project guide](https://www.theodinproject.com/cou
 
 - email me at viridiana.cruz.olivera@gmail.com
 
-- Linkedin [@viricruz](https://www.linkedin.com/in/viricruz/)
+- LinkedIn [@viricruz](https://www.linkedin.com/in/viricruz/)
